@@ -1,2 +1,2 @@
 # iFunnyCaption
-An iFunny style GIF captioner written in C
+An iFunny style GIF captioner written in C#
