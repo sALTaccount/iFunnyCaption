@@ -62,6 +62,7 @@ namespace iFunnyCaptionGUI
 
         public static void Render(MainWindow sender, string inputGif, string outputGif, string caption, FontFamily fontIn, float speedMultiplier)
         {
+            sender.RenderProgressBar.Invoke((MethodInvoker)delegate { sender.RenderButton.Enabled = false; });
             Image origGif = Image.FromFile(inputGif);
             int imagewidth = origGif.Width;
             int fontheight = (int)(0.075 * imagewidth);
@@ -82,6 +83,7 @@ namespace iFunnyCaptionGUI
                 }
             }
             MessageBox.Show("Render complete", "iFunny Caption", MessageBoxButtons.OK);
+            sender.RenderProgressBar.Invoke((MethodInvoker)delegate { sender.RenderButton.Enabled = true; });
             sender.RenderProgressBar.Invoke((MethodInvoker)delegate { sender.RenderProgressBar.Value = 1; });
         }
 
